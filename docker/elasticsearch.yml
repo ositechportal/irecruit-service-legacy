@@ -1,0 +1,19 @@
+packaging:
+  add:
+    - target/${project.build.finalName}.jar
+ports:
+  - 8080
+  - 9200
+  - 9300
+healthChecks:
+  pings:
+    - url: http://localhost:9200/
+    - url: http://localhost:8080/
+tag:
+    smadarpalle10/${project.build.finalName}:${project.version}
+
+path:
+  data: /data/data
+  logs: /data/log
+  plugins: /data/plugins
+  work: /data/work

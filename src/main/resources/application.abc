@@ -1,0 +1,62 @@
+server:
+  context-path: /irecruit
+  port: 8080
+spring:
+  profiles: default
+  data:
+    mongodb:
+      database: osirpdb
+#      host: localhost
+#      port: 27017
+ #     uri: mongodb://127.0.0.1:27017/osirpdb
+    redis:
+      repositories:
+        enabled: false
+    elasticsearch:
+      repositories:
+        enabled: true
+      cluster-name: localhost:9200
+      cluster-nodes: localhost:9200
+
+---
+
+server:
+  context-path: /irecruit
+  port: 8080
+spring:
+  profiles: test
+  data:
+    mongodb:
+      database: osirpdb
+      host: localhost
+      port: 27017
+ #     uri: mongodb://127.0.0.1:27017/osirpdb
+    redis:
+      repositories:
+        enabled: false
+    elasticsearch:
+      repositories:
+        enabled: true
+      cluster-name: localhost:9300
+      cluster-nodes: localhost:9300
+---
+
+server:
+    port: 8080
+    context-path: /irecruit
+spring:
+  profiles: production
+  data:
+    mongodb:
+      database: osirpdb
+      host: localhost
+      port: 27017
+ #     uri: mongodb://127.0.0.1:27017/osirpdb
+    redis:
+      repositories:
+        enabled: false
+    elasticsearch:
+      repositories:
+        enabled: true
+      cluster-name: localhost:9300
+      cluster-nodes: localhost:9300
